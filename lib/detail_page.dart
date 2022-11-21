@@ -26,6 +26,7 @@ class DetailPage extends StatelessWidget {
                 child: Text("Description", style: Theme.of(context).textTheme.headline5)
                 ),
               Text(product.description),
+              Text(product.displayNumberVote()),
               Padding(padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
