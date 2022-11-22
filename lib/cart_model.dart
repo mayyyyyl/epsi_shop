@@ -15,6 +15,12 @@ class CartModel extends ChangeNotifier{
     notifyListeners();
   }
 
+  totalPrice(){
+    num total = 0;
+    _lsProducts.forEach((element) {total += element.prix;});
+    return total.roundToDouble();
+  }
+
   getProducts() => _lsProducts;
   getCount() => _lsProducts.length;
 }
