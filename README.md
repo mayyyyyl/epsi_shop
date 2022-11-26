@@ -1,4 +1,4 @@
-# epsi_shop
+# Epsi_shop
 
 the new experience of shopping
 
