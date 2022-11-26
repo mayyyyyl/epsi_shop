@@ -1,14 +1,13 @@
-import 'dart:convert';
-
 class Product{
   String nom;
   String description;
   num prix;
   String image;
   String categorie;
-  Map note;
+  num note;
+  num num_note;
 
-  Product(this.nom, this.description, this.prix, this.image, this.categorie, this.note);
+  Product(this.nom, this.description, this.prix, this.image, this.categorie, this.note, this.num_note);
 
   Product.fromJson(Map<String,dynamic> json)
       : nom = json["title"],
@@ -16,9 +15,11 @@ class Product{
         prix = json["price"],
         image = json["image"],
         categorie = json["category"],
-        note = json["rating"];
+        note = json["rating"]["rate"],
+        num_note = json["rating"]["count"];
 
 
   String displayPriceInEuro() => "$prix €";
-  String displayNumberVote() => "$note";
+  String displayNumberVote() => "$num_note";
+  String displayVote() => "$note";
 }

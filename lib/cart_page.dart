@@ -36,7 +36,6 @@ class CartPage extends StatelessWidget {
                       ),
                     ),
                 ),
-              Spacer(),
               Text("Votre panier total est de : ${context.watch<CartModel>().totalPrice()} €", style: Theme.of(context).textTheme.headline6,)
             ],
             ),

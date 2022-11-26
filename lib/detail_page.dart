@@ -1,5 +1,6 @@
 import 'package:epsi_shop/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:getwidget/getwidget.dart';
 
 class DetailPage extends StatelessWidget {
   final Product product;
@@ -22,11 +23,34 @@ class DetailPage extends StatelessWidget {
               ),
               Text(product.nom, style: Theme.of(context).textTheme.headline6),
               Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(15.0),
                 child: Text("Description", style: Theme.of(context).textTheme.headline5)
                 ),
               Text(product.description),
-              Text(product.displayNumberVote()),
+              Padding(padding: const EdgeInsets.all(25.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text("Nombre d'avis : ${product.displayNumberVote()}",
+                          style: const TextStyle(decoration: TextDecoration.underline)
+                      ),
+                      GFRating(
+                        color: GFColors.LIGHT,
+                        borderColor: GFColors.LIGHT,
+                        filledIcon: const Icon(
+                          Icons.star,
+                          color: GFColors.WARNING,
+                        ),
+                        size: GFSize.SMALL,
+                        allowHalfRating: true,
+                        value: product.note.toDouble(),
+                        halfFilledIcon: const Icon(Icons.star_half, color: GFColors.WARNING,),
+                        onChanged: (value) {
+                        },
+                      ),
+                    ],
+                  )
+              ),
               Padding(padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
